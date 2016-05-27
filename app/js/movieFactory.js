@@ -3,11 +3,11 @@
 
     angular
         .module('app')
-        .factory('mFactory', mFactory);
+        .factory('movieFactory', movieFactory);
 
-    mFactory.$inject = ['$http', '$q', '$log'];
+    movieFactory.$inject = ['$http', '$q', '$log'];
 
-    function mFactory($http, $q, $log) {
+    function movieFactory($http, $q, $log) {
 
         var service = {
 

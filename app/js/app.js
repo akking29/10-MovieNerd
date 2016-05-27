@@ -12,14 +12,14 @@
 	  				('main', {
 	  					url: "/main",
 	  					templateUrl: 'app/partials/main.html',
-	  					controller: 'mController as vm'
+	  					controller: 'movieController as vm'
 	  					
 	  				})
 
 	  			.state('results',{
 	  				url:"/results?id",
 	  				templateUrl: 'app/partials/results.html',
-	  				controller: 'mDController as vm'
+	  				controller: 'movieDetailsController as vm'
 	  			})
 	  });
 })();

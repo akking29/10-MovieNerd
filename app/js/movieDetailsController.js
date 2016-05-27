@@ -3,14 +3,14 @@
 
     angular
         .module('app')
-        .controller('mDController', mDController);
+        .controller('movieDetailsController', movieDetailsController);
 
-    mDController.$inject = ['$scope', '$stateParams', '$log', 'mFactory'];
+    movieDetailsController.$inject = ['$scope', '$stateParams', '$log', 'movieFactory'];
 
-    function mDController($scope, $stateParams, $log, mFactory) {
+    function movieDetailsController($scope, $stateParams, $log, mFactory) {
 
         var vm = this;
-        vm.ctrlName = 'mDController';
+        vm.ctrlName = 'movieDetailsController';
 
         activate();
 

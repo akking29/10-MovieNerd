@@ -3,14 +3,14 @@
 
     var app = angular
         .module('app')
-        .controller('mController', mController);
+        .controller('movieController', movieController);
 
-    mController.$inject = ['$scope', '$log', 'mFactory'];
+    movieController.$inject = ['$scope', '$log', 'movieFactory'];
 
-    function mController($scope, $log, mFactory) {
+    function movieController($scope, $log, mFactory) {
 
         var vm = this;
-        vm.ctrlName = 'mController';
+        vm.ctrlName = 'movieController';
 
         vm.search = function(title) {
 
