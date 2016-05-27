@@ -1,8 +1,14 @@
-<div class="page-header">
-	
-        <h1>Results!</h1>
-        <div class = 'container' ng-model='vm.movies'>
-
+<body>
+<div class='container'>
+    <div class="panel panel-info">
+        <div class='panel-heading text-center'>
+            <h3><strong>{{vm.details.Title}}</strong> {{vm.details.Year}}</h3>
         </div>
+        <div class='panel-body text-center'>
+            <img class='image' src="{{vm.details.Poster}}" />
+        </div>
+        <div id='infoTab' class="panel-footer text-center"><a ui-sref="main">New Search</a></div>
     </div>
+</div>
 <div ui-view></div>
+</body>

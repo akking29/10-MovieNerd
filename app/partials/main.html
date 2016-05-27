@@ -1,41 +1,40 @@
- <body>
- <div class='container'>
+<body>
+    <div class='container'>
         <div class='row'>
             <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
                 <form class="simple-form" name='movieSearch' role='form' ng-model='vm.movies'>
-                    <div class='panel panel-info'>
+                    <div class='panel panel-primary'>
                         <div class='panel-heading'>
-                            <h1 class='panel-title'>Movie Search</h1>
+                            <h1 class='panel-title text-center'>Movie Search</h1>
                         </div>
                         <div class='panel-body'>
                             <div class='form-group'>
-                                <label for='movieTitle'> Movie </label>
+                                <label for='movieTitle'> Movie Title </label>
                                 <input type='text' class='form-control' ng-model='title' />
                             </div>
-                            
                         </div>
                         <div class='panel-footer'>
-                            <button class='btn btn-primary' ng-click='vm.search(title);'>Search</button>
+                            <button class='btn btn-primary' ng-click='vm.search(title);'><span> Search </span></button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div class='container'>
-    hey
+    <div class="container">
+        <div class="row" ng-model='vm.title'>
+            <div class='col-xs-12 col-sm-6 col-md-4' ng-repeat='title in vm.titles'>
+                <div class="panel panel-primary">
+                    <div class='panel-heading text-center'>
+                        <h3 id='title' class="panel-title"><strong>{{title.Title}}</strong> {{title.Year}}</h3>
+                    </div>
+                    <div class='panel-body text-center'>
+                        <img class='image' src="{{title.Poster}}" />
+                    </div>
+                    <div id='infoTab' class="panel-footer text-center"><a ui-sref='main.results({name:"{{title.Title}}"})'> <button ng-click='vm.detailSearch(title)' class ='btn btn-default'>More Info </button></a></div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class ='container' ng-model='mController'>
-    <div ng-repeat='title in vm.titles'>
-    {{title.Title}}
-    {{title.Year}}
-        </div>
-           <a ui-sref='main.results'> View Details</a>
-       
-        </div>
-
-<div ui-view></div>
+    <div ui-view></div>
 </body>
-
-   

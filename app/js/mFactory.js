@@ -5,13 +5,14 @@
         .module('app')
         .factory('mFactory', mFactory);
 
-    mFactory.$inject = ['$http', '$q', '$log'];
+    mFactory.$inject = ['$http', '$q', '$log', '$stateParams'];
 
-    function mFactory($http, $q, $log) {
+    function mFactory($http, $q, $log, $stateParams) {
 
         var service = {
 
-                getMovies: getMovies
+                getMovies: getMovies,
+                getDetails: getDetails
             };
             //content
    
@@ -44,6 +45,36 @@
             });
         return defer.promise;
     };
+
+    getDetails($stateParams.name);
+
+    function getDetails(title) {
+        var defer = $q.defer();
+
+        $http({
+
+            method: 'GET',
+            url: 'http://www.omdbapi.com/?t=' + $stateParams.name
+
+        }).then(
+            function(response) {
+                if (typeof response.data === 'object') {
+                    defer.resolve(response);
+                    toastr.success('Movies are here!');
+                } else {
+                    defer.reject(response);
+                    toastr.warning('No movies.')
+                }
+            },
+            function(error) {
+                defer.reject(error);
+                $log.error(error);
+                toastr.error('error: ' + error.data + '<br/>status: ' + error.statusText);
+
+            });
+        return defer.promise;
+    };
+
 
    }; 
 

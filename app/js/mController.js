@@ -1,31 +1,31 @@
 (function() {
-	'use strict';
+    'use strict';
 
-var app = angular
-	  .module('app')
-	  .controller('mController', mController);
+    var app = angular
+        .module('app')
+        .controller('mController', mController);
 
-	mController.$inject = ['$scope', '$log', 'mFactory'];
+    mController.$inject = ['$scope', '$log', 'mFactory'];
 
-	function mController($scope, $log, mFactory) {
+    function mController($scope, $log, mFactory) {
 
-		var vm = this;
-		vm.ctrlName = 'mController';
+        var vm = this;
+        vm.ctrlName = 'mController';
 
-		vm.search = function(title){
+        vm.search = function(title) {
 
-			mFactory.getMovies(title).then(
-        function(response) {
-            vm.movies = response.data;
-            vm.titles = vm.movies.Search;
-            console.log(vm.movies);
-            console.log(vm.titles);
+            mFactory.getMovies(title).then(
+                function(response) {
+                    vm.movies = response.data;
+                    vm.titles = vm.movies.Search;
+                    console.log(vm.movies);
+                    console.log(vm.titles);
 
-        });
-		};
-		//content
+                });
+        };
+        //content
 
-		
-	}
+
+    }
 
 })();
