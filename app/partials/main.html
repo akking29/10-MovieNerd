@@ -1,0 +1,41 @@
+ <body>
+ <div class='container'>
+        <div class='row'>
+            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+                <form class="simple-form" name='movieSearch' role='form' ng-model='vm.movies'>
+                    <div class='panel panel-info'>
+                        <div class='panel-heading'>
+                            <h1 class='panel-title'>Movie Search</h1>
+                        </div>
+                        <div class='panel-body'>
+                            <div class='form-group'>
+                                <label for='movieTitle'> Movie </label>
+                                <input type='text' class='form-control' ng-model='title' />
+                            </div>
+                            
+                        </div>
+                        <div class='panel-footer'>
+                            <button class='btn btn-primary' ng-click='vm.search(title);'>Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+    hey
+    </div>
+    
+    <div class ='container' ng-model='mController'>
+    <div ng-repeat='title in vm.titles'>
+    {{title.Title}}
+    {{title.Year}}
+        </div>
+           <a ui-sref='main.results'> View Details</a>
+       
+        </div>
+
+<div ui-view></div>
+</body>
+
+   
