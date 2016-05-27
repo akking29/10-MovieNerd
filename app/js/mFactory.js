@@ -5,9 +5,9 @@
         .module('app')
         .factory('mFactory', mFactory);
 
-    mFactory.$inject = ['$http', '$q', '$log', '$stateParams'];
+    mFactory.$inject = ['$http', '$q', '$log'];
 
-    function mFactory($http, $q, $log, $stateParams) {
+    function mFactory($http, $q, $log) {
 
         var service = {
 
@@ -46,15 +46,15 @@
         return defer.promise;
     };
 
-    getDetails($stateParams.name);
+    
 
-    function getDetails(title) {
+    function getDetails(id) {
         var defer = $q.defer();
 
         $http({
 
             method: 'GET',
-            url: 'http://www.omdbapi.com/?t=' + $stateParams.name
+            url: 'http://www.omdbapi.com/?i=' + id
 
         }).then(
             function(response) {

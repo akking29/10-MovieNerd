@@ -5,27 +5,22 @@
         .module('app')
         .controller('mDController', mDController);
 
-    mDController.$inject = ['$scope', '$log', 'mFactory'];
+    mDController.$inject = ['$scope', '$stateParams', '$log', 'mFactory'];
 
-    function mDController($scope, $log, mFactory) {
+    function mDController($scope, $stateParams, $log, mFactory) {
 
         var vm = this;
         vm.ctrlName = 'mDController';
 
-        vm.detailSearch = function(title) {
+        activate();
 
-            mFactory.getDetails(title).then(
+        function activate() {
+            mFactory.getDetails($stateParams.id).then(
                 function(response) {
                     vm.details = response.data;
-
                     console.log(vm.details);
-
-
                 });
-
-        };
-        
-        console.log(vm.details);
+        }
     };
-    
+
 })();

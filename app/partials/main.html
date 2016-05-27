@@ -1,4 +1,5 @@
 <body>
+</br>
     <div class='container'>
         <div class='row'>
             <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
@@ -22,7 +23,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="row" ng-model='vm.title'>
+        <div class="row">
             <div class='col-xs-12 col-sm-6 col-md-4' ng-repeat='title in vm.titles'>
                 <div class="panel panel-primary">
                     <div class='panel-heading text-center'>
@@ -31,10 +32,9 @@
                     <div class='panel-body text-center'>
                         <img class='image' src="{{title.Poster}}" />
                     </div>
-                    <div id='infoTab' class="panel-footer text-center"><a ui-sref='main.results({name:"{{title.Title}}"})'> <button ng-click='vm.detailSearch(title)' class ='btn btn-default'>More Info </button></a></div>
+                    <div id='infoTab' class="panel-footer text-center"><a ui-sref='results({id:"{{title.imdbID}}"})'> <button class ='btn btn-default'>More Info </button></a></div>
                 </div>
             </div>
         </div>
     </div>
-    <div ui-view></div>
 </body>

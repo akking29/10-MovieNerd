@@ -16,8 +16,8 @@
 	  					
 	  				})
 
-	  			.state('main.results',{
-	  				url:"/results",
+	  			.state('results',{
+	  				url:"/results?id",
 	  				templateUrl: 'app/partials/results.html',
 	  				controller: 'mDController as vm'
 	  			})
